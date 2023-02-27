@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.lww_springboot.mapper.StrategyMapper">
+
+    <select id="selectAll" parameterType="com.example.lww_springboot.entiy.QueryObject" resultType="com.example.lww_springboot.entiy.Strategy">
+        select * from strategy
+        <where>
+            <choose>
+                <when test='queryObject.classify=="海"'>
+                    classify='海'
+                </when>
+                <when test='queryObject.classify=="星空"'>
+                    classify='星空'
+                </when>
+                <when test='queryObject.classify=="草原"'>
+                    classify='草原'
+                </when>
+                <when test='queryObject.classify=="沙漠"'>
+                    classify='沙漠'
+                </when>
+            </choose>
+        </where>
+    </select>
+</mapper>
